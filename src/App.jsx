@@ -55,7 +55,7 @@ function App() {
                                     {task.state}
                                 </span>
                             </div>
-                            <span> Priority: {task.priority}</span>
+                            <span>Priority: {task.priority}</span>
                             <span>Est. time {task.estimatedTime}</span>
                         </li>
                     ))}
@@ -75,7 +75,7 @@ function App() {
                 <ul className="my-4">
                     {completedTasks.map((task) => (
                         <li key={task.id} className="flex flex-col my-4">
-                            <div className="flex flex-wrap gap-3 font-semibold">
+                            <div className="flex flex-wrap items-center gap-3 font-semibold">
                                 <h3>{task.title}</h3>
                                 <span
                                     className={`text-white px-4 py-1 rounded-md ${bgColorBadge(
@@ -85,7 +85,7 @@ function App() {
                                     {task.state}
                                 </span>
                             </div>
-                            <span> Priority: {task.priority}</span>
+                            <span>Priority: {task.priority}</span>
                             <span>Est. time {task.estimatedTime}</span>
                         </li>
                     ))}
