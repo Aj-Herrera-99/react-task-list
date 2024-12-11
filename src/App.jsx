@@ -2,26 +2,31 @@ import "./App.css";
 import { tasks } from "./data/tasks";
 
 function App() {
-    
-    const currentTasks = tasks.filter(task => task.state.toLowerCase() != "completed")
+    const currentTasks = tasks.filter(
+        (task) => task.state.toLowerCase() != "completed"
+    );
     const currTasksLen = currentTasks.length;
 
-    const completedTasks = tasks.filter(task => task.state.toLowerCase() == "completed")
+    const completedTasks = tasks.filter(
+        (task) => task.state.toLowerCase() == "completed"
+    );
     const completedTasksLen = completedTasks.length;
 
     return (
         <>
             {/* HEADER */}
-            <header className="bg-red-300 p-6">
+            <header className="p-6 bg-green-300">
                 <h1 className="text-4xl font-semibold">Task Manager</h1>
             </header>
             {/* CURRENT TASKS */}
-            <section className="bg-green-300 p-6">
-                <h2>Current Tasks ({currTasksLen})</h2>
-                <ul>
+            <section className="p-6">
+                <h2 className="text-xl font-semibold">
+                    Current Tasks ({currTasksLen})
+                </h2>
+                <ul className="my-4">
                     {currentTasks.map((task) => (
-                        <li className="flex flex-col">
-                            <div className="flex gap-3">
+                        <li className="flex flex-col my-3">
+                            <div className="flex gap-3 font-semibold">
                                 <h3>{task.title}</h3>
                                 <span>{task.state}</span>
                             </div>
@@ -31,19 +36,27 @@ function App() {
                     ))}
                 </ul>
             </section>
+            {/* SEPARATOR (ONLY GRAPHICS) */}
+            <div className="px-6 ">
+                <div className="border-solid border-b-2 border-stone-300"></div>
+            </div>
             {/* COMPLETED TASKS */}
-            <section className="bg-blue-300 p-6">
-                <h2>Completed Tasks ({completedTasksLen})</h2>
-                {completedTasks.map((task) => (
-                    <li className="flex flex-col">
-                        <div className="flex gap-3">
-                            <h3>{task.title}</h3>
-                            <span>{task.state}</span>
-                        </div>
-                        <span> Priority: {task.priority}</span>
-                        <span>Est. time {task.estimatedTime}</span>
-                    </li>
-                ))}
+            <section className="p-6">
+                <h2 className="text-xl font-semibold">
+                    Completed Tasks ({completedTasksLen})
+                </h2>
+                <ul className="my-4">
+                    {completedTasks.map((task) => (
+                        <li className="flex flex-col my-3">
+                            <div className="flex gap-3 font-semibold">
+                                <h3>{task.title}</h3>
+                                <span>{task.state}</span>
+                            </div>
+                            <span> Priority: {task.priority}</span>
+                            <span>Est. time {task.estimatedTime}</span>
+                        </li>
+                    ))}
+                </ul>
             </section>
         </>
     );
