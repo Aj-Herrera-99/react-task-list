@@ -2,7 +2,11 @@ import "./App.css";
 import { tasks } from "./data/tasks";
 
 function App() {
-    console.log(tasks);
+    
+    const currentTasks = tasks.filter(task => task.state.toLowerCase() != "completed")
+
+    const completedTasks = tasks.filter(task => task.state.toLowerCase() == "completed")
+
     return (
         <>
             {/* HEADER */}
@@ -13,7 +17,7 @@ function App() {
             <section className="bg-green-300 p-4">
                 <h2>Current Tasks</h2>
                 <ul>
-                    {tasks.map((task) => (
+                    {currentTasks.map((task) => (
                         <li className="flex flex-col">
                             <div className="flex gap-3">
                                 <h3>{task.title}</h3>
@@ -27,7 +31,17 @@ function App() {
             </section>
             {/* COMPLETED TASKS */}
             <section className="bg-blue-300 p-4">
-                <h2>Completed Tasks Tasks</h2>
+                <h2>Completed Tasks</h2>
+                {completedTasks.map((task) => (
+                    <li className="flex flex-col">
+                        <div className="flex gap-3">
+                            <h3>{task.title}</h3>
+                            <span>{task.state}</span>
+                        </div>
+                        <span> Priority: {task.priority}</span>
+                        <span>Est. time {task.estimatedTime}</span>
+                    </li>
+                ))}
             </section>
         </>
     );
