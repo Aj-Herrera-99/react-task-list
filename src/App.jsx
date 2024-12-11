@@ -4,18 +4,20 @@ import { tasks } from "./data/tasks";
 function App() {
     
     const currentTasks = tasks.filter(task => task.state.toLowerCase() != "completed")
+    const currTasksLen = currentTasks.length;
 
     const completedTasks = tasks.filter(task => task.state.toLowerCase() == "completed")
+    const completedTasksLen = completedTasks.length;
 
     return (
         <>
             {/* HEADER */}
-            <header className="bg-red-300 p-4">
-                <h1>Task Manager</h1>
+            <header className="bg-red-300 p-6">
+                <h1 className="text-4xl font-semibold">Task Manager</h1>
             </header>
             {/* CURRENT TASKS */}
-            <section className="bg-green-300 p-4">
-                <h2>Current Tasks</h2>
+            <section className="bg-green-300 p-6">
+                <h2>Current Tasks ({currTasksLen})</h2>
                 <ul>
                     {currentTasks.map((task) => (
                         <li className="flex flex-col">
@@ -30,8 +32,8 @@ function App() {
                 </ul>
             </section>
             {/* COMPLETED TASKS */}
-            <section className="bg-blue-300 p-4">
-                <h2>Completed Tasks</h2>
+            <section className="bg-blue-300 p-6">
+                <h2>Completed Tasks ({completedTasksLen})</h2>
                 {completedTasks.map((task) => (
                     <li className="flex flex-col">
                         <div className="flex gap-3">
