@@ -16,6 +16,18 @@ function App() {
     // numero tasks completate
     const completedTasksLen = completedTasks.length;
 
+    // classes
+    const bgColorBadge = (state) => {
+        switch (state) {
+            case "completed":
+                return "bg-green-500";
+            case "in_progress":
+                return "bg-blue-500";
+            case "backlog":
+                return "bg-red-500";
+        }
+    };
+
     return (
         <>
             {/* HEADER */}
@@ -31,9 +43,15 @@ function App() {
                 <ul className="my-4">
                     {currentTasks.map((task) => (
                         <li key={task.id} className="flex flex-col my-3">
-                            <div className="flex gap-3 font-semibold">
+                            <div className="flex  items-center gap-3 font-semibold">
                                 <h3>{task.title}</h3>
-                                <span>{task.state}</span>
+                                <span
+                                    className={`text-white px-2 py-1 rounded-md ${bgColorBadge(
+                                        task.state
+                                    )}`}
+                                >
+                                    {task.state}
+                                </span>
                             </div>
                             <span> Priority: {task.priority}</span>
                             <span>Est. time {task.estimatedTime}</span>
@@ -57,7 +75,13 @@ function App() {
                         <li key={task.id} className="flex flex-col my-3">
                             <div className="flex gap-3 font-semibold">
                                 <h3>{task.title}</h3>
-                                <span>{task.state}</span>
+                                <span
+                                    className={`text-white px-2 py-1 rounded-md ${bgColorBadge(
+                                        task.state
+                                    )}`}
+                                >
+                                    {task.state}
+                                </span>
                             </div>
                             <span> Priority: {task.priority}</span>
                             <span>Est. time {task.estimatedTime}</span>
