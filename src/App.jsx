@@ -1,5 +1,6 @@
 import "./App.css";
 import { tasks } from "./data/tasks";
+import Header from "./components/Header";
 
 function App() {
     // filtro tasks in corso
@@ -32,10 +33,8 @@ function App() {
 
     return (
         <>
-            {/* HEADER */}
-            <header className="p-6 bg-emerald-300">
-                <h1 className="text-4xl font-semibold">Task Manager</h1>
-            </header>
+            {/* HEADER COMPONENT */}
+            <Header></Header>
 
             {/* CURRENT TASKS */}
             <section className="p-6">
