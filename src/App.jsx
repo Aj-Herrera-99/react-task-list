@@ -31,7 +31,7 @@ function App() {
     return (
         <>
             {/* HEADER */}
-            <header className="p-6 bg-green-300">
+            <header className="p-6 bg-emerald-300">
                 <h1 className="text-4xl font-semibold">Task Manager</h1>
             </header>
 
@@ -42,11 +42,11 @@ function App() {
                 </h2>
                 <ul className="my-4">
                     {currentTasks.map((task) => (
-                        <li key={task.id} className="flex flex-col my-3">
-                            <div className="flex  items-center gap-3 font-semibold">
+                        <li key={task.id} className="flex flex-col my-4">
+                            <div className="flex flex-wrap items-center gap-3 font-semibold">
                                 <h3>{task.title}</h3>
                                 <span
-                                    className={`text-white px-2 py-1 rounded-md ${bgColorBadge(
+                                    className={`text-white px-4 py-1 rounded-md ${bgColorBadge(
                                         task.state
                                     )}`}
                                 >
@@ -72,11 +72,11 @@ function App() {
                 </h2>
                 <ul className="my-4">
                     {completedTasks.map((task) => (
-                        <li key={task.id} className="flex flex-col my-3">
-                            <div className="flex gap-3 font-semibold">
+                        <li key={task.id} className="flex flex-col my-4">
+                            <div className="flex flex-wrap gap-3 font-semibold">
                                 <h3>{task.title}</h3>
                                 <span
-                                    className={`text-white px-2 py-1 rounded-md ${bgColorBadge(
+                                    className={`text-white px-4 py-1 rounded-md ${bgColorBadge(
                                         task.state
                                     )}`}
                                 >
