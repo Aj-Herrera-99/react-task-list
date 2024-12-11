@@ -34,7 +34,7 @@ function App() {
     return (
         <>
             {/* HEADER COMPONENT */}
-            <Header></Header>
+            <Header />
 
             {/* CURRENT TASKS */}
             <section className="p-6">
