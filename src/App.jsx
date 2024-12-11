@@ -3,17 +3,18 @@ import { tasks } from "./data/tasks";
 import Header from "./components/Header";
 
 function App() {
-    // filtro tasks in corso
-    const currentTasks = tasks.filter(
-        (task) => task.state.toLowerCase() != "completed"
-    );
+    const currentTasks = [];
+    const completedTasks = [];
+    tasks.forEach((task) => {
+        if (task.state.toLocaleLowerCase() != "completed") {
+            currentTasks.push(task);
+        } else {
+            completedTasks.push(task);
+        }
+    });
     // numero tasks in corso
     const currTasksLen = currentTasks.length;
 
-    // filtro tasks completate
-    const completedTasks = tasks.filter(
-        (task) => task.state.toLowerCase() == "completed"
-    );
     // numero tasks completate
     const completedTasksLen = completedTasks.length;
 
