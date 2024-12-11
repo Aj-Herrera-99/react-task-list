@@ -1,6 +1,8 @@
 import "./App.css";
+import { tasks } from "./data/tasks";
 
 function App() {
+    console.log(tasks);
     return (
         <>
             {/* HEADER */}
