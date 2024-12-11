@@ -25,6 +25,8 @@ function App() {
                 return "bg-blue-500";
             case "backlog":
                 return "bg-red-500";
+            default:
+                return "";
         }
     };
 
