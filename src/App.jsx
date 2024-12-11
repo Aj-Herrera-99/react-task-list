@@ -12,11 +12,6 @@ function App() {
             completedTasks.push(task);
         }
     });
-    // numero tasks in corso
-    const currTasksLen = currentTasks.length;
-
-    // numero tasks completate
-    const completedTasksLen = completedTasks.length;
 
     // classes
     const bgColorBadge = (state) => {
@@ -40,7 +35,7 @@ function App() {
             {/* CURRENT TASKS */}
             <section className="p-6">
                 <h2 className="text-xl font-semibold">
-                    Current Tasks ({currTasksLen})
+                    Current Tasks ({currentTasks.length})
                 </h2>
                 <ul className="my-4">
                     {currentTasks.map((task) => (
@@ -70,7 +65,7 @@ function App() {
             {/* COMPLETED TASKS */}
             <section className="p-6">
                 <h2 className="text-xl font-semibold">
-                    Completed Tasks ({completedTasksLen})
+                    Completed Tasks ({completedTasks.length})
                 </h2>
                 <ul className="my-4">
                     {completedTasks.map((task) => (
